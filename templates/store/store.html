@@ -30,7 +30,7 @@
 				<h6 class="title">Categories</h6>
 			</a>
 		</header>
-		<div class="filter-content collapse show" id="collapse_1" style="">
+		<div class="filter-content collapse show" id="collapse_1">
 			<div class="card-body">
 
 				<ul class="list-menu">
@@ -112,8 +112,9 @@
 			<figcaption class="info-wrap">
 				<div class="fix-height">
 					<a href="{{ product.get_url }}" class="title">{{ product.product_name }}</a>
-					<div class="price-wrap mt-2">
+					<div style="display: flex;justify-content: space-between;" class="price-wrap mt-2">
 						<span class="price">$ {{ product.price }}</span>
+						<span class="chatgpt"><a href="{% url 'chat' %}"><img height="30px" src="{% static './images/icons/chatgpt.png' %}" alt=""></a></span>
 					</div> <!-- price-wrap.// -->
 				</div>
 				<a href="{{ product.get_url }}" class="btn btn-block btn-primary">View Details </a>

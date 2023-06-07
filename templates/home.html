@@ -12,7 +12,7 @@
 <div class="container">
 
 <div class="intro-banner-wrap">
-	<img src="{% static 'images/banners/1.jpg' %}" class="img-fluid rounded">
+	<img src="{% static 'images/banners/cover7.jpg' %}" class="img-fluid rounded">
 </div>
 
 </div> <!-- container //  -->
@@ -36,7 +36,10 @@
 			<a href="{{ product.get_url }}" class="img-wrap"> <img src="{{ product.images.url }}"> </a>
 			<figcaption class="info-wrap">
 				<a href="{{ product.get_url }}" class="title">{{ product.product_name }}</a>
-				<div class="price mt-1">$ {{ product.price }}</div> <!-- price-wrap.// -->
+				<div style="display: flex;justify-content: space-between;" class="price-wrap mt-2">
+					<span class="price">$ {{ product.price }}</span>
+					<span class="chatgpt"><a href="{% url 'chat' %}"><img height="30px" src="{% static './images/icons/chatgpt.png' %}" alt=""></a></span>
+				</div> <!-- price-wrap.// -->
 				<div class="rating-star">
 					<span>
 						<i class="fa fa-star{% if product.averageReview < 0.5 %}-o{% elif product.averageReview >= 0.5 and product.averageReview < 1 %}-half-o {% endif %}" aria-hidden="true"></i>

@@ -9,7 +9,7 @@
   <div class="collapse navbar-collapse" id="navbarTop4">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item dropdown">
-      <a href="#" class="nav-link">   English </a>
+      <a href="#" class="nav-link">   عربي </a>
     </li>
     <li class="nav-item dropdown">
       <a href="#" class="nav-link"> USD </a>
@@ -21,8 +21,8 @@
     </li>
     </ul>
     <ul class="navbar-nav">
-    <li><a href="{% url 'aboutus' %}" class="nav-link"> <i class="fa fa-envelope"></i> About Us </a></li>
-    <li><a href="{% url 'contactus' %}" class="nav-link"> <i class="fa fa-phone"></i> Contact Us </a></li>
+    <li><a href="{% url 'aboutus' %}" class="nav-link"> <i class="fa fa-envelope"></i> من نحن </a></li>
+    <li><a href="{% url 'contactus' %}" class="nav-link"> <i class="fa fa-phone"></i> اتصل بنا </a></li>
   </ul> <!-- list-inline //  -->
   </div> <!-- navbar-collapse .// -->
 </div> <!-- container //  -->
@@ -39,21 +39,21 @@
   <div class="col-lg col-sm col-md col-6 flex-grow-0">
     <div class="category-wrap dropdown d-inline-block float-right">
       <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-        <i class="fa fa-bars"></i> All category
+        <i class="fa fa-bars"></i> كل المنتجات
       </button>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="{% url 'store' %}">All Products </a>
+        <a class="dropdown-item" href="{% url 'store' %}">كل المنتجات</a>
         {% for category in links %}
           <a class="dropdown-item" href="{{ category.get_url }}">{{ category.category_name }} </a>
         {% endfor %}
       </div>
     </div>  <!-- category-wrap.// -->
   </div> <!-- col.// -->
-  <a href="{% url 'store' %}" class="btn btn-outline-primary">Store</a>
+  <a href="{% url 'store' %}" class="btn btn-outline-primary">المتجر</a>
   <div class="col-lg  col-md-6 col-sm-12 col">
     <form action="{% url 'search' %}" class="search" method='GET'>
       <div class="input-group w-100">
-          <input type="text" class="form-control" style="width:60%;" placeholder="Search" name="keyword">
+          <input type="text" class="form-control" style="width:60%;" placeholder="ابحث هنا" name="keyword">
 
           <div class="input-group-append">
             <button class="btn btn-primary" type="submit">
@@ -67,18 +67,18 @@
         <div class="d-flex justify-content-end mb-3 mb-lg-0">
           {% if user.id is None %}
           <div class="widget-header">
-            <small class="title text-muted">Welcome guest!</small>
+            <small class="title text-muted">! مرحبا بالضيف</small>
             <div>
-              <a href="{% url 'login' %}">Sign in</a> <span class="dark-transp"> | </span>
-              <a href="{% url 'register' %}"> Register</a>
+              <a href="{% url 'login' %}">تسجيل دخول</a> <span class="dark-transp"> | </span>
+              <a href="{% url 'register' %}"> تسجيل</a>
             </div>
           </div>
           {% else %}
           <div class="widget-header">
-            <small class="title text-muted">Welcome {{user.first_name}}!</small>
+            <small class="title text-muted">مرحبا {{user.first_name}}!</small>
             <div>
-              <a href="{% url 'dashboard' %}">Dashboard</a> <span class="dark-transp"> | </span>
-              <a href="{% url 'logout' %}"> Logout</a>
+              <a href="{% url 'dashboard' %}">لوحة التحكم</a> <span class="dark-transp"> | </span>
+              <a href="{% url 'logout' %}"> تسجيل خروج</a>
             </div>
           </div>
           {% endif %}

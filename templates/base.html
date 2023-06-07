@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE HTML>
-<html lang="en">
+<html  lang="en">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="pragma" content="no-cache" />
@@ -57,6 +57,9 @@ $(document).ready(function() {
   {% block content %}
   <!-- content -->
   {% endblock %}
+
+<!-- chatbot -->
+{% include 'includes/chatbot.html' %}
 
 
 <!-- footer -->
