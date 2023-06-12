@@ -30,7 +30,7 @@
     
     <body>
         <form action="{% url 'home' %}">
-            <input type="submit" value="Home Page" style="margin-left: 10px;margin-top: 10px;" type="button" class="btn btn-light"></input>
+            <input type="submit" value="الصفحة الرئيسية" style="margin-left: 10px;margin-top: 10px;" type="button" class="btn btn-light"></input>
         </form>
 
     
@@ -40,7 +40,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="inner-content">
-                        <h2>Contact Us</h2>
+                        <h2>اتصل بنا</h2>
                     </div>
                 </div>
             </div>
@@ -55,24 +55,24 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="section-heading">
-                        <h2>Say Hello. Don't Be Shy!</h2>
-                        <span>Details to details is what makes white-lamp different from the other online Shopping.</span>
+                        <h2>! قل مرحبا. لا تخجل</h2>
+                        <span>تفاصيل التفاصيل هي ما يجعل موقعنا مختلفًا عن التسوق عبر الإنترنت.</span>
                     </div>
                     <form id="contact" action="" method="post">
                         <div class="row">
                           <div class="col-lg-6">
                             <fieldset>
-                              <input name="name" type="text" id="name" placeholder="Your name" required="">
+                              <input name="name" type="text" id="name" placeholder="الاسم" required="">
                             </fieldset>
                           </div>
                           <div class="col-lg-6">
                             <fieldset>
-                              <input name="email" type="text" id="email" placeholder="Your email" required="">
+                              <input name="email" type="text" id="email" placeholder="الإيميل" required="">
                             </fieldset>
                           </div>
                           <div class="col-lg-12">
                             <fieldset>
-                              <textarea name="message" rows="6" id="message" placeholder="Your message" required=""></textarea>
+                              <textarea name="message" rows="6" id="message" placeholder="رسالتك" required=""></textarea>
                             </fieldset>
                           </div>
                           <div class="col-lg-12">
@@ -95,46 +95,53 @@
                 <div class="col-lg-3">
                     <div class="first-item">
                         <div class="logo">
-                            <img src="{% static 'include/images/whitelogo.png' %}" alt="H" style="
+                            <img src="{% static 'include/images/whitelogo.png' %}" alt="M" style="
                             height: 100px;
                             width: 100px;
                         ">                        </div>
                         <ul>
                             <li><a href="#"></a></li>
                             <li><a href="#">whitelamp@company.com</a></li>
-                            <li><a href="#">123-456-789</a></li>
+                            <li><a href="#">0597585127</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-3">
-                    <h4>Shopping &amp; Categories</h4>
+                    <h4>التسوق &amp; فئات</h4>
                     <ul>
-                        <li><a href="#">Computers Shopping</a></li>
-                        <li><a href="#">Phone’s Shopping</a></li>
-                        <li><a href="#">Accissories's Shopping</a></li>
+                        <li><a href="#">شراء أجهزة الكمبيوتر</a></li>
+                        <li><a href="#">شراء الهواتف</a></li>
+                        <li><a href="#">شراء الإكسسوارات</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3">
-                    <h4>Useful Links</h4>
+                    <h4>روابط مفيدة</h4>
                     <ul>
-                        <li><a href="#">Homepage</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Help</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="{% url 'home' %}">الصفحة الرئيسية</a></li>
+                        <li><a href="{% url 'aboutus' %}">من نحن</a></li>
+                        <li><a href="{% url 'home' %}">مساعدة</a></li>
+                        <li><a href="{% url 'contactus' %}">اتصل بنا</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3">
-                    <h4>Help &amp; Information</h4>
+                    <h4>مساعدة &amp; معلومات</h4>
                     <ul>
-                        <li><a href="#">Help</a></li>
-                        <li><a href="#">FAQ's</a></li>
-                        <li><a href="#">Shipping</a></li>
-                        <li><a href="#">Tracking ID</a></li>
+                        <li><a href="#">مساعدة</a></li>
+                        <li><a href="#">دعم فني</a></li>
+                        <li><a href="#">التسوق</a></li>
+                        <li><a href="#">التتبع</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-12">
                     <div class="under-footer">
-                        <p>Copyright © 2022 HexaShop Co., Ltd. All Rights Reserved. 
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+                <div class="col-lg-12">
+                    <div class="under-footer">
+                        <p>Copyright © 2023 white-lamp Co., Ltd. All Rights Reserved. 
                         
                         <br>Design: <a href="https://white-lamp.com" target="_parent" title="free css templates">white-lamp</a>
 

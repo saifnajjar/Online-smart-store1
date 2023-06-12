@@ -24,13 +24,13 @@ def store(request, category_slug=None):
         categories = get_object_or_404(Category, slug=category_slug)
         products = Product.objects.filter(
             category=categories, is_available=True)
-        paginator = Paginator(products, 1)
+        paginator = Paginator(products, 6)
         page = request.GET.get('page')
         paged_products = paginator.get_page(page)
         product_count = products.count()
     else:
-        products = Product.objects.all().filter(is_available=True).order_by('id')
-        paginator = Paginator(products, 3)
+        products = Product.objects.all().filter(is_available=True).order_by('-created_date')
+        paginator = Paginator(products, 6)
         page = request.GET.get('page')
         paged_products = paginator.get_page(page)
         product_count = products.count()
@@ -101,7 +101,7 @@ def submit_review(request, product_id):
             form = ReviewForm(request.POST, instance=reviews)
             form.save()
             messages.success(
-                request, 'Thank you! Your review has been updated.')
+                request, ' شكرًا لك! تم تحديث رأيك في المنتج.')
             return redirect(url)
         except ReviewRating.DoesNotExist:
             form = ReviewForm(request.POST)
@@ -115,7 +115,7 @@ def submit_review(request, product_id):
                 data.user_id = request.user.id
                 data.save()
                 messages.success(
-                    request, 'Thank you! Your review has been submitted.')
+                    request, 'شكرًا لك! تم تقديم رأيك الخاص بك.')
                 return redirect(url)
 
 

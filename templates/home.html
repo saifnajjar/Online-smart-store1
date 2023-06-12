@@ -4,7 +4,18 @@
 {% load static %}
 
 {% block content %}
-
+<style>
+	.offer-tag {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		background-color: #ff6f00;
+		color: #fff;
+		padding: 4px 8px;
+		border-radius: 4px;
+		font-size: 14px;
+	  }
+	</style>
 
 
 <!-- ========================= SECTION MAIN ========================= -->
@@ -24,8 +35,8 @@
 <div class="container">
 
 <header class="section-heading">
-	<a href="{% url 'store' %}" class="btn btn-outline-primary float-right">See all</a>
-	<h3 class="section-title">Popular products</h3>
+	<a href="{% url 'store' %}" class="btn btn-outline-primary float-right">مشاهدة الكل</a>
+	<h3 class="section-title">المنتجات الرائجة</h3>
 </header><!-- sect-heading -->
 
 
@@ -34,6 +45,7 @@
 	<div class="col-md-3">
 		<div class="card card-product-grid">
 			<a href="{{ product.get_url }}" class="img-wrap"> <img src="{{ product.images.url }}"> </a>
+			<span class="offer-tag">Offer</span>
 			<figcaption class="info-wrap">
 				<a href="{{ product.get_url }}" class="title">{{ product.product_name }}</a>
 				<div style="display: flex;justify-content: space-between;" class="price-wrap mt-2">

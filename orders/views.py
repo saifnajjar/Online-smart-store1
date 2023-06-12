@@ -58,7 +58,7 @@ def payments(request):
     CartItem.objects.filter(user=request.user).delete()
 
     # Send order recieved email to customer
-    mail_subject = 'Thank you for your order!'
+    mail_subject = 'شكرا لك لتقديم هذا الطلب!'
     message = render_to_string('orders/order_recieved_email.html', {
         'user': request.user,
         'order': order,

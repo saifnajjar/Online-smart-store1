@@ -6,10 +6,10 @@
 
 <div class="container" style="margin-top: 50px;">
     <center><i class="fas fa-check-circle" style="font-size: 72px;margin-bottom: 20px;color: #28A745;"></i></center>
-    <h2 class="text-center">Payment Successful</h2>
+    <h2 class="text-center">تم الدفع بنجاح</h2>
 	<br>
 	<div class="text-center">
-		<a href="{% url 'store' %}" class="btn btn-success">Shop more</a>
+		<a href="{% url 'store' %}" class="btn btn-success">تسوق أكثر</a>
 	</div>
 </div>
 
@@ -31,7 +31,7 @@
                             <!-- col-lg-6 start here -->
                             <div class="invoice-from">
                                 <ul class="list-unstyled text-right">
-                                    <li><strong>Invoiced To</strong></li>
+                                    <li><strong>فاتورة ل</strong></li>
                                     <li>{{order.full_name}}</li>
                                     <li>{{order.full_address}}</li>
                                     <li>{{order.city}}, {{order.state}}</li>
@@ -58,9 +58,9 @@
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
-                                                <th class="per70 text-center">Products</th>
-                                                <th class="per5 text-center">Qty</th>
-                                                <th class="per25 text-center">Total</th>
+                                                <th class="per70 text-center">المنتجات</th>
+                                                <th class="per5 text-center">الكمية</th>
+                                                <th class="per25 text-center">الإجمالي</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -82,16 +82,16 @@
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <th colspan="2" class="text-right">Sub Total:</th>
+                                                <th colspan="2" class="text-right">المجموع الأولي:</th>
                                                 <th class="text-center">${{subtotal}} USD</th>
                                             </tr>
                                             <tr>
-                                                <th colspan="2" class="text-right">Tax:</th>
+                                                <th colspan="2" class="text-right">الضريبة:</th>
                                                 <th class="text-center">${{order.tax}} USD</th>
                                             </tr>
 
                                             <tr>
-                                                <th colspan="2" class="text-right">Grand Total:</th>
+                                                <th colspan="2" class="text-right">المجموع الكلي:</th>
                                                 <th class="text-center">${{order.order_total}} USD</th>
                                             </tr>
                                         </tfoot>
@@ -99,7 +99,7 @@
                                 </div>
                             </div>
                             <div class="invoice-footer mt25">
-                                <p class="text-center">Thank you for shopping with us!</p>
+                                <p class="text-center"> !شكرا للتسوق معنا</p>
                             </div>
                         </div>
                         <!-- col-lg-12 end here -->

@@ -1,5 +1,6 @@
 # importing render and redirect
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 # importing the openai API
 import openai
 # import the generated API key from the secret_key file
@@ -8,15 +9,16 @@ from .secret_key import API_KEY
 openai.api_key = API_KEY
 
 # this is the home view for handling home page logic
+@login_required(login_url='login')
 def home(request):
     try:
         # if the session does not have a messages key, create one
         if 'messages' not in request.session:
             request.session['messages'] = [
-                {"role": "system", "content": "You are now chatting with a user, provide them with comprehensive, short and concise answers."},
+                {"role": "system", "content": "أنت الآن تدردش مع أحد المستخدمين ، وسنقوم بتزويدك بإجابات شاملة ومختصرة وموجزة."},
             ]
             
-        message = request.POST.get('message', 'Give me a brief overview of the device')
+        message = request.POST.get('message', 'أعطني بعض مميزات جهاز')
 
         if request.method == 'POST':
             # get the prompt from the form

@@ -41,7 +41,7 @@ def register(request):
 
             # USER ACTIVATION
             current_site = get_current_site(request)
-            mail_subject = 'Please activate your account'
+            mail_subject = 'يرجى تفعيل حسابك'
             message = render_to_string('accounts/account_verification_email.html', {
                 'user': user,
                 'domain': current_site,
@@ -51,7 +51,7 @@ def register(request):
             to_email = email
             send_email = EmailMessage(mail_subject, message, to=[to_email])
             send_email.send()
-            # messages.success(request, 'Thank you for registering with us. We have sent you a verification email to your email address [rathan.kumar@gmail.com]. Please verify it.')
+            # messages.success(request, 'شكرا لتسجيلك معنا. لقد أرسلنا لك رسالة بريد إلكتروني للتحقق إلى عنوان بريدك الإلكتروني [yahyakmail59@gmail.com]. الرجاء التحقق من ذلك.')
             return redirect('/accounts/login/?command=verification&email='+email)
     else:
         form = RegistrationForm()
@@ -109,7 +109,7 @@ def login(request):
             except:
                 pass
             auth.login(request, user)
-            messages.success(request, 'You are now logged in.')
+            messages.success(request, 'لقد قمت الآن بتسجيل الدخول .')
             url = request.META.get('HTTP_REFERER')
             try:
                 query = requests.utils.urlparse(url).query
@@ -121,7 +121,7 @@ def login(request):
             except:
                 return redirect('dashboard')
         else:
-            messages.error(request, 'Invalid login credentials')
+            messages.error(request, 'بيانات تسجيل الدخول غير صالحة')
             return redirect('login')
     return render(request, 'accounts/login.html')
 
@@ -129,7 +129,7 @@ def login(request):
 @login_required(login_url = 'login')
 def logout(request):
     auth.logout(request)
-    messages.success(request, 'You are logged out.')
+    messages.success(request, 'لقد قمت الآن بتسجيل خروج .')
     return redirect('login')
 
 
@@ -143,10 +143,10 @@ def activate(request, uidb64, token):
     if user is not None and default_token_generator.check_token(user, token):
         user.is_active = True
         user.save()
-        messages.success(request, 'Congratulations! Your account is activated.')
+        messages.success(request, 'تهانينا! تم تنشيط حسابك.')
         return redirect('login')
     else:
-        messages.error(request, 'Invalid activation link')
+        messages.error(request, 'رابط التفعيل غير صالح')
         return redirect('register')
 
 
@@ -171,7 +171,7 @@ def forgotPassword(request):
 
             # Reset password email
             current_site = get_current_site(request)
-            mail_subject = 'Reset Your Password'
+            mail_subject = 'اعادة ضبط كلمه السر'
             message = render_to_string('accounts/reset_password_email.html', {
                 'user': user,
                 'domain': current_site,
@@ -182,10 +182,10 @@ def forgotPassword(request):
             send_email = EmailMessage(mail_subject, message, to=[to_email])
             send_email.send()
 
-            messages.success(request, 'Password reset email has been sent to your email address.')
+            messages.success(request, 'تم إرسال بريد إلكتروني لإعادة تعيين كلمة المرور إلى عنوان بريدك الإلكتروني.')
             return redirect('login')
         else:
-            messages.error(request, 'Account does not exist!')
+            messages.error(request, 'الحساب غير موجود!')
             return redirect('forgotPassword')
     return render(request, 'accounts/forgotPassword.html')
 
@@ -199,10 +199,10 @@ def resetpassword_validate(request, uidb64, token):
 
     if user is not None and default_token_generator.check_token(user, token):
         request.session['uid'] = uid
-        messages.success(request, 'Please reset your password')
+        messages.success(request, 'يرجى إعادة ضبط كلمة المرور الخاصة بك')
         return redirect('resetPassword')
     else:
-        messages.error(request, 'This link has been expired!')
+        messages.error(request, 'هذا الرابط قد انتهت صلاحيته!')
         return redirect('login')
 
 
@@ -216,10 +216,10 @@ def resetPassword(request):
             user = Account.objects.get(pk=uid)
             user.set_password(password)
             user.save()
-            messages.success(request, 'Password reset successful')
+            messages.success(request, 'تمت إعادة تعيين كلمة المرور بنجاح')
             return redirect('login')
         else:
-            messages.error(request, 'Password do not match!')
+            messages.error(request, 'كلمة السر غير مطابقة!')
             return redirect('resetPassword')
     else:
         return render(request, 'accounts/resetPassword.html')
@@ -243,7 +243,7 @@ def edit_profile(request):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
-            messages.success(request, 'Your profile has been updated.')
+            messages.success(request, 'تم تحديث ملفك الشخصي.')
             return redirect('edit_profile')
     else:
         user_form = UserForm(instance=request.user)
@@ -271,13 +271,13 @@ def change_password(request):
                 user.set_password(new_password)
                 user.save()
                 # auth.logout(request)
-                messages.success(request, 'Password updated successfully.')
+                messages.success(request, 'تم تحديث كلمة السر بنجاح.')
                 return redirect('change_password')
             else:
-                messages.error(request, 'Please enter valid current password')
+                messages.error(request, 'الرجاء إدخال كلمة مرور حالية صالحة')
                 return redirect('change_password')
         else:
-            messages.error(request, 'Password does not match!')
+            messages.error(request, 'كلمة السر غير متطابقة!')
             return redirect('change_password')
     return render(request, 'accounts/change_password.html')
 
