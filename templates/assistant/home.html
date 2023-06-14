@@ -6,8 +6,8 @@
         <div class="card">
             <h1 class="card-header text-center">Chatgpt Clone</h1>
             <div class="card-body">
-              <div class="d-flex justify-content-start">
-                <button type="button" class="btn btn-primary mb-3" onclick="location.href='{% url 'new_chat' %}';">New Chat +</button>
+              <div class="d-flex justify-content-end">
+                <button type="button" class="btn btn-primary mb-3" onclick="location.href='{% url 'new_chat' %}';">+ دردشة جديدة</button>
               </div>
               <div class="chat-history mb-3">
                 {% for message in messages %}

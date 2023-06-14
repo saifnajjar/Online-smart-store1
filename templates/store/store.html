@@ -2,6 +2,47 @@
 {% load static %}
 
 {% block content %}
+
+<style>
+	.answer-box {
+		border: 1px solid #ccc;
+		background-color: #f9f9f9;
+		padding: 20px;
+		margin-top: 20px;
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		direction: rtl;
+	}
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".chat-button").click(function () {
+                var question = $(this).data("question");
+                var csrfToken = "{{ csrf_token }}";
+                $.ajax({
+                    type: "POST",
+                    url: "/store/store/",
+                    data: {text: question},
+                    headers: {
+                        "X-CSRFToken": csrfToken
+                    },
+                    dataType: "json",
+                    success: function (response) {
+                        var answer = response.answer;
+                        var answerBox = $('<div>').addClass('answer-box').text(answer);
+                        $("#answer-container").empty().append(answerBox);
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        console.log(xhr.responseText);
+                    }
+                });
+            });
+        });
+    </script>
+
 <!-- ========================= SECTION PAGETOP ========================= -->
 <section class="section-pagetop bg">
 <div class="container">
@@ -39,6 +80,9 @@
 					<li><a href="{{ category.get_url }}">{{ category.category_name }}  </a></li>
 					{% endfor %}
 				</ul>
+					<div id="answer-container"></div>
+					<div>للمزيد من المعلومات إضغط <a href="{% url 'chat' %}">هنا</a></div>
+				
 
 			</div> <!-- card-body.// -->
 		</div>
@@ -74,7 +118,7 @@
 					<a href="{{ product.get_url }}" class="title">{{ product.product_name }}</a>
 					<div style="display: flex;justify-content: space-between;" class="price-wrap mt-2">
 						<span class="price">$ {{ product.price }}</span>
-						<span class="chatgpt"><a href="{% url 'chat' %}"><img height="30px" src="{% static './images/icons/chatgpt.png' %}" alt=""></a></span>
+						<span class="chat-button" data-question="مامميزات جهاز {{product.product_name}}?"><button style="border: 0;"><img height="30px" src="{% static './images/icons/chatgpt.png' %}"></button></span>
 					</div> <!-- price-wrap.// -->
 				</div>
 				<a href="{{ product.get_url }}" class="btn btn-block btn-primary">عرض التفاصيل </a>

@@ -5,7 +5,7 @@ from django.db.models import Q
 from django.http import JsonResponse
 from openai import ChatCompletion
 import openai
-from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.csrf import csrf_exempt, csrf_protect
 
 from carts.views import _cart_id
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
@@ -15,6 +15,33 @@ from django.contrib import messages
 from orders.models import OrderProduct
 from .models import Product, ReviewRating, ProductGallery
 
+openai.api_key = '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'
+
+@csrf_protect
+def chat_view(request):
+    if request.method == 'POST':
+        # Get the text from the button click
+        text = request.POST.get('text')
+
+        # Send the text to ChatGPT and get the response
+        response = openai.Completion.create(
+            engine='text-davinci-003',
+            prompt=text,
+            max_tokens=200,
+            n=1,
+            stop=None,
+            temperature=0.1,
+            top_p=None
+        )
+
+        # Extract the answer from the API response
+        answer = response.choices[0].text.strip()
+
+        # Return the response as JSON
+        response = {'answer': answer}
+        return JsonResponse(response)
+
+    return render(request, 'chatbot/chat2.html')
 
 def store(request, category_slug=None):
     categories = None

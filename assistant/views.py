@@ -18,7 +18,7 @@ def home(request):
                 {"role": "system", "content": "أنت الآن تدردش مع أحد المستخدمين ، وسنقوم بتزويدك بإجابات شاملة ومختصرة وموجزة."},
             ]
             
-        message = request.POST.get('message', 'أعطني بعض مميزات جهاز')
+        message = request.POST.get('message', ' ')
 
         if request.method == 'POST':
             # get the prompt from the form
