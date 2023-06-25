@@ -15,7 +15,7 @@ from django.contrib import messages
 from orders.models import OrderProduct
 from .models import Product, ReviewRating, ProductGallery
 
-openai.api_key = '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'
+openai.api_key = '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'
 
 @csrf_protect
 def chat_view(request):
