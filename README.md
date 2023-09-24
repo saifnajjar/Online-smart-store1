@@ -1,5 +1,4 @@
-# grade_project
-this is grade project for my university
+
 
 
 # About The Project
@@ -7,9 +6,7 @@ White-lamp is an eCommerce application built with Python Django Framework. Some 
 
 # Setup Instructions
 
-1. Clone the repository `git clone https://github.com/yahyakmail59/grade_project.git`
-2. Navigrate to the working directory `cd grade_project`
-3. Open the project from the code editor `code .` or `atom .`
+
 4. Create virtual environment `python -m venv env`
 5. Activate the virtual environment `source env/Scripts/activate`
 6. Install required packages to run the project `pip install -r requirements.txt`
@@ -45,8 +42,4 @@ White-lamp is an eCommerce application built with Python Django Framework. Some 
 13. Add categories, products, add variations, register user, login, place orders and EXPLORE SO MANY FEATURES
 
 
-## Support
-💙 If you like this project, give it a ⭐ and share it with friends!
 
-##
-Made with ❤️ and Python
