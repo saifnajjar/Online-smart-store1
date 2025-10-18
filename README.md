@@ -46,8 +46,10 @@ White-lamp is an eCommerce application built with Python Django Framework. Some 
 
 <img width="946" height="637" alt="Screenshot 2023-08-23 025940" src="https://github.com/user-attachments/assets/c689eaa4-bc6b-422c-b6cb-3941aba82d0c" />
 
+<img width="568" height="590" alt="Screenshot 2023-08-23 030027" src="https://github.com/user-attachments/assets/4fd36a8f-3e0c-4eee-8c45-0783d0be9d64" />
 
 
+<img width="823" height="315" alt="Screenshot 2023-08-23 030017" src="https://github.com/user-attachments/assets/5d338161-7413-4f3b-80e7-438df180abca" />
 
 <img width="925" height="402" alt="Screenshot 2023-08-23 030005" src="https://github.com/user-attachments/assets/7030d0db-5cbf-4ad1-822a-b581e4394ac3" />
 
