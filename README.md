@@ -41,7 +41,7 @@ White-lamp is an eCommerce application built with Python Django Framework. Some 
 12. Login to admin panel - (`http://127.0.0.1:8000/securelogin/`)
 13. Add categories, products, add variations, register user, login, place orders and EXPLORE SO MANY FEATURES
 
-![WhatsApp Image 2023-09-25 at 12 12 02 AM (1)](https://github.com/saifnajjar/Online-smart-store1/assets/76654964/b3ebd3c1-23ca-4faf-a691-e4a4a1b46c95)
+
 
 
 
